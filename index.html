@@ -120,19 +120,21 @@ p {
 
 /* 🎉 CONFETTI */
 .confetti {
-    position: absolute;
-    width: 10px;
-    height: 14px;
-    opacity: 0.8;
-    animation: burst 3s linear forwards;
+    position: fixed;
+    width: 12px;
+    height: 16px;
+    top: -20px;
+    opacity: 1;
+    animation: fall 5s linear forwards;
 }
 
-@keyframes burst {
+@keyframes fall {
     0% {
-        transform: translate(0,0) rotate(0deg);
+        transform: translateY(0) rotate(0deg);
     }
     100% {
-        transform: translate(var(--x), var(--y)) rotate(720deg);
+        transform: translateY(130vh) rotate(720deg);
+        opacity: 0;
     }
 }
 
@@ -184,31 +186,31 @@ p {
 <div class="bottom-glow"></div>
 
 <script>
-
-/* 🎉 CONFETTI BURST FROM SIDES */
 function popConfetti() {
-    for(let i=0; i<120; i++){
+    for(let i = 0; i < 120; i++) {
         let conf = document.createElement("div");
-        conf.classList.add("confetti");
+        conf.className = "confetti";
 
-        conf.style.left = (i % 2 === 0) ? "0%" : "100%";
-        conf.style.top = "50%";
+        conf.style.left = Math.random() * 100 + "vw";
 
-        let x = (Math.random()*400 - 200) + "px";
-        let y = (Math.random()*400 - 200) + "px";
+        conf.style.backgroundColor = [
+            "#ff4d6d","#ffd166","#06d6a0","#118ab2","#ffffff"
+        ][Math.floor(Math.random()*5)];
 
-        conf.style.setProperty('--x', x);
-        conf.style.setProperty('--y', y);
-
-        conf.style.background = ["#fff","#ff4d6d","#ffd166","#06d6a0","#118ab2"][Math.floor(Math.random()*5)];
+        conf.style.animationDuration = (Math.random()*2 + 4) + "s";
 
         document.body.appendChild(conf);
+
+        // REMOVE LATER (not too early)
+        setTimeout(() => conf.remove(), 7000);
     }
 }
 
-window.onload = popConfetti;
+window.addEventListener("load", () => {
+    setTimeout(popConfetti, 300);
+});
 
+document.body.addEventListener("click", popConfetti);
 </script>
-
 </body>
 </html>
