@@ -113,8 +113,25 @@ p {
 @keyframes floatFlower {
     0%,100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
+}.plumeria {
+    position: absolute;
+    width: 90px;
+    opacity: 0.9;
+    animation: floatPlumeria 7s ease-in-out infinite;
+    filter: drop-shadow(0 0 8px rgba(255,255,255,0.6));
 }
 
+    @keyframes floatPlumeria {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-12px) rotate(5deg);
+    }
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+}
 /* 🎉 CONFETTI */
 .confetti {
     position: fixed;
@@ -152,6 +169,7 @@ p {
 <h1>Happy Birthday Mina 🎂💖</h1>
 
 <p>Wishing you a day filled with happiness, smiles, and everything you love 🌸✨</p>
+<p style="font-size:0.9rem; opacity:0.8;">(I remembered your favorite 🌼)</p>
 
 <!-- CARD -->
 <div class="card" onclick="this.classList.toggle('flip')">
@@ -172,12 +190,12 @@ p {
 <div class="balloon" style="left:80%; background:#a2d2ff;"></div>
 
 <!-- 🌸 FLOWERS -->
-<img class="flower" src="flower1.png" style="top:10%; left:10%; width:70px;">
-<img class="flower" src="flower3.png" style="top:20%; left:85%; width:80px;">
-<img class="flower" src="flower4.png" style="top:60%; left:5%; width:75px;">
-<img class="flower" src="flower1.png" style="top:75%; left:85%; width:90px;">
-<img class="flower" src="flower3.png" style="top:85%; left:30%; width:70px;">
-<img class="flower" src="flower4.png" style="top:50%; left:50%; width:80px;">
+<img class="flower" src="plumeria.jpeg" style="top:10%; left:10%; width:70px;">
+<img class="flower" src="plumeria.jpeg" style="top:20%; left:85%; width:80px;">
+<img class="flower" src="plumeria.jpeg" style="top:60%; left:5%; width:75px;">
+<img class="flower" src="plumeria.jpeg" style="top:75%; left:85%; width:90px;">
+<img class="flower" src="plumeria.jpeg" style="top:85%; left:30%; width:70px;">
+<img class="flower" src="plumeria.jpeg" style="top:50%; left:50%; width:80px;">
 
 <div class="bottom-glow"></div>
 <script>
